@@ -125,6 +125,14 @@ Licensed under the [Apache License 2.0](./LICENSE.md).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Contact
+
+DOTO Software - software@dotohealth.com
+
+Project Link: [https://github.com/DOTO-Health/ai-clinical-case-summarisation.git](https://github.com/DOTO-Health/ai-clinical-case-summarisation.git)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ---
 
 <p align="center">
