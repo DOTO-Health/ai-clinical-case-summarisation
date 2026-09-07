@@ -1,0 +1,5 @@
+title: AI Case Summarization — Developer Docs
+description: Developer documentation for the AI-assisted maternal and labour care case summarization pipeline.
+theme: jekyll-theme-cayman
+show_downloads: false
+repo_url: https://github.com/DOTO-Health/ai-clinical-case-summarisation

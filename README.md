@@ -3,7 +3,7 @@
 # AI Case Summarization — Maternal & Labour Care
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](./LICENSE.md)
-[![Status](https://img.shields.io/badge/status-work--in--progress-yellow.svg)](#status--roadmap)
+[![Status](https://img.shields.io/badge/status-work--in--progress-yellow.svg)](#status-and-roadmap)
 
 AI-assisted summarization of intrapartum case sheets, so clinicians get an accurate, up-to-date
 picture of a mother's condition in seconds at shift handovers, consultant rounds, and
@@ -17,7 +17,7 @@ period in high-volume, resource-constrained hospital settings.
 > treatment planning, and every summary is reviewed and signed off by a clinician before use.
 > It is not a certified medical device.
 
-**[Explore the architecture »](./ARCHITECTURE.md)** · [Project Charter](./PROJECT_CHARTER.md) · [Developer Docs](./docs/index.md)
+**[Explore the architecture »](./ARCHITECTURE.md)** · [Project Charter](./PROJECT_CHARTER.md) · [Developer Docs](https://doto-health.github.io/ai-clinical-case-summarisation/)
 
 ---
 
@@ -25,8 +25,9 @@ period in high-volume, resource-constrained hospital settings.
 
 - [About](#about)
 - [Architecture Overview](#architecture-overview)
-- [Solution Structure](#project-structure)
-- [Status & Roadmap](#status--roadmap)
+- [Solution Structure](#solution-structure)
+- [Models](#models)
+- [Status and Roadmap](#status-and-roadmap)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -48,25 +49,22 @@ The pipeline is a hybrid of deterministic clinical logic and AI-based language g
 split into six phases:
 
 1. **Intake** : Pull the latest patient record and the previous summary, and compute values like gestational age.
-   parameters (e.g. gestational age).
-2. **Deterministic Detection** : Check the record against WHO Labour Care Guide thresholds to flag danger signs, no AI involved. This also classifies the patient as Normal or High-risk.
-   involved. Classifies the patient as Normal or High-risk.
+2. **Deterministic Detection** : Check the record against WHO Labour Care Guide thresholds to flag danger signs, no AI involved. Classifies the patient as Normal or High-risk.
 3. **AI Background Drafting** : An LLM writes the mother's clinical background from free text notes. This runs once and is reused across summaries.
-4. **Merger LLM** : Assembles the final summary: current situation, what changed, and active alerts. The Recommendation is always left blank for the clinician to fill in.
-   alerts as clear points. The Recommendation is always left blank for the clinician.
+4. **Merger LLM** : Assembles the final summary: current situation, what changed, and active alerts as clear points. The Recommendation is always left blank for the clinician to fill in.
 5. **Verify (governance)** : a deterministic check confirms every number, alert, and change
    exactly matches the source data before anything reaches a clinician. Failing that check
    regenerates the summary (max 2 attempts), then falls back to a rules-only summary.
 6. **Deliver** : the clinician reviews, writes the Recommendation, and signs off.
 
-See **[ARCHITECTURE.md](./ARCHITECTURE.md)** for the full breakdown, including the design
+See **[ARCHITECTURE.md](./ARCHITECTURE.md)** for the full breakdown, including the design rationale for each phase.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Solution Structure
 
 This is the planned layout. Pipeline code has not been published yet — see
-[Status & Roadmap](#status--roadmap).
+[Status & Roadmap](#status-and-roadmap).
 
 ```
 ├── src/                    # pipeline code (planned, not yet published)
@@ -83,7 +81,7 @@ This is the planned layout. Pipeline code has not been published yet — see
 ├── QA_PROCESS.md
 ├── CONTRIBUTING.md
 ├── CODE_OF_CONDUCT.md
-├── LICENSE
+├── LICENSE.md
 └── README.md
 ```
 
@@ -107,17 +105,21 @@ This solution is in active solution design and prototyping. It is not production
 - [x] Real clinical dataset collection and synthetic data generation underway
 - [ ] Pipeline code (intake, rules engine, LLM stages, verification)
 - [ ] Model selection finalized
-- [ ] API and summary endpoints(software / system agnostic)
+- [ ] API and summary endpoints (software / system agnostic)
 - [ ] Evaluation harness run against the finalized pipeline
 - [ ] Part 2, Dashboard (portal) (not started, separate phase)
 
 Planned for this repository next: the synthetic dataset, pipeline code, setup and run instructions, and instructions for connecting a chosen model, local or API, to the summary endpoints.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contributing
 
 This solution is pre-alpha. The architecture is settled, implementation is in progress. Contributions, questions, and issues are welcome. See [CONTRIBUTING.md](./CONTRIBUTING.md) for setup notes and the PR process, and [QA_PROCESS.md](./QA_PROCESS.md) for how summaries are evaluated for clinical grounding.
 
 All contributors are expected to follow the [Code of Conduct](./CODE_OF_CONDUCT.md).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## License
 

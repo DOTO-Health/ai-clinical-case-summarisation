@@ -35,7 +35,7 @@ No model has been finalized yet. Models currently being compared for clinical su
 
 This list covers local, open weight models. API based options are being considered separately and will be added here once decided.
 
-Evaluation follows the approach in [QA_PROCESS.md](../QA_PROCESS.md). Factual grounding (Tiers 1 to 3) is weighted more heavily than narrative fluency (Tier 4) when comparing candidates.
+Evaluation follows the approach in [QA_PROCESS.md](https://github.com/DOTO-Health/ai-clinical-case-summarisation/blob/main/QA_PROCESS.md). Factual grounding (Tiers 1 to 3) is weighted more heavily than narrative fluency (Tier 4) when comparing candidates.
 
 ## What's Next
 

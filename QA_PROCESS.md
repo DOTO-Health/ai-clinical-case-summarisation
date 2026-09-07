@@ -2,8 +2,6 @@
 
 This document describes how AI generated summaries are, and will be, evaluated for clinical safety, factual grounding, and quality. It reflects the intended QA approach for this solution. Parts of it are already in use during prototyping (mentioned below), and the rest will be built out as the pipeline is implemented.
 
-
-
 This is a data-to-text generation task, not general purpose summarization: the source is a structured or semi-structured clinical record, and there is a hard constraint that every claim in a summary must trace to a record value, a rule output, or a cited guideline. That framing is why purpose built evaluation metrics fit better here than generic summarization benchmarks, as described in the four tiers below.
 
 ## Runtime Verification (Phase 5 of the Pipeline)
@@ -23,13 +21,14 @@ Status: implemented. A grounding checker has been built and used across prompt i
 
 Used to evaluate the summarization model itself, separate from the runtime verification step above, which checks every summary in production.
 
-| Tier | What it checks | Method |
-|---|---|---|
-| 1. Deterministic checks | Exact factual correctness | Slot Error Rate, numeric and date exact match scripting, risk stratified completeness ratio |
-| 2. Semantic entailment | Whether the summary's meaning follows from the source, even when phrasing differs | Self hosted scorers |
+| Tier                    | What it checks                                                                    | Method                                                                                      |
+| ----------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| 1. Deterministic checks | Exact factual correctness                                                         | Slot Error Rate, numeric and date exact match scripting, risk stratified completeness ratio |
+| 2. Semantic entailment  | Whether the summary's meaning follows from the source, even when phrasing differs | Self hosted scorers                                                                         |
+
 |
 
-Tiers 1 and 2 determine whether a summary is safe to show a clinician. 
+Tiers 1 and 2 determine whether a summary is safe to show a clinician.
 
 Status: framework designed. Tier 1 grounding checks are implemented and in use. Tier 2 planned as the pipeline moves past prototyping
 
@@ -47,7 +46,6 @@ against source data using a seven-tag schema:
 - `qualitative-substitution` — a real value replaced with a label like "stable" or "normal"
 - `scope-violation` — the summary includes diagnosis, prediction, or recommendation content
   that should have been left to the clinician
-
 
 ## Test set strategy
 
