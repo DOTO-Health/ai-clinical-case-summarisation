@@ -14,6 +14,12 @@ The design is deliberately hybrid, not a single end-to-end LLM call:
 
 The intent is a documentation assistant, not a decision-maker. Diagnosis, treatment planning, and sign-off remain with the treating clinician.
 
+## Mission and Vision
+
+**Mission:** To deliver a tool that upholds clinical standards in shift handovers.
+
+**Vision:** By 2035, establish this tool as a standard integrated across the public health ecosystem.
+
 ## Why Apache License 2.0
 
 We chose Apache 2.0 for three reasons that matter specifically for a clinical-adjacent tool:
@@ -32,3 +38,22 @@ We are not a copyleft (e.g., GPL/AGPL) project because we want hospitals and ven
 - Disagreements are resolved through open discussion in the issue/PR; if unresolved, maintainers vote, with ties broken by the project lead.
 
 This project intentionally keeps AI-authored output in a supporting role and keeps the clinical safety layer deterministic and human-reviewed — that same philosophy carries into governance: the people closest to patient-safety risk (clinical advisors) have a formal veto on clinical-logic changes, while everything else moves at normal open-source speed.
+
+## Community
+
+AI Case Summarization is maintained by DOTO Health. The current maintainers and how to reach them are listed in [MAINTAINERS.md](./MAINTAINERS.md).
+
+Anyone is welcome to take part. Bug reports and feature requests go through the [GitHub issue templates](./.github/ISSUE_TEMPLATE):
+[Report a issue](https://github.com/DOTO-Health/ai-clinical-case-summarisation/issues/new?labels=bug&template=bug-report---.md). Code and documentation changes come in as pull requests following [CONTRIBUTING.md](./CONTRIBUTING.md); changes to clinical logic also need sign-off from a clinical advisor.
+
+Contributors with sustained, quality work in an area may be invited to become maintainers, as described in [MAINTAINERS.md](./MAINTAINERS.md). Everyone taking part is expected to follow [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
+
+---
+
+<p align="center">
+  <img src="./assets/doto-trademark.jpeg" alt="DOTO Health" width="140">
+</p>
+
+<p align="center">
+  <sub>DOTO and the DOTO logo are trademarks of DOTO Health. Licensed under Apache 2.0 — trademark use is not covered by the code license. See <a href="./LICENSE.md">LICENSE.md</a>.</sub>
+</p>
