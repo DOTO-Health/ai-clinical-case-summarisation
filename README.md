@@ -17,7 +17,7 @@ period in high-volume, resource-constrained hospital settings.
 > treatment planning, and every summary is reviewed and signed off by a clinician before use.
 > It is not a certified medical device.
 
-**[Explore the architecture »](./ARCHITECTURE.md)** · [Project Charter](./PROJECT_CHARTER.md) · [Developer Docs](https://doto-health.github.io/ai-clinical-case-summarisation/)
+**[Explore the architecture »](./ARCHITECTURE.md)** · [Project Charter](./PROJECT_CHARTER.md) · [Developer Docs](https://doto-health.github.io/ai-clinical-case-summarisation/) · [Discussions](https://github.com/DOTO-Health/ai-clinical-case-summarisation/discussions)
 
 ---
 
